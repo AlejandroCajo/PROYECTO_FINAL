@@ -268,11 +268,11 @@ public class PuntoDeVenta extends javax.swing.JPanel {
         int idVendedor;
 
         if (usuario.getTipo().equalsIgnoreCase("cliente")) {
-            idCliente = usuario.getId();
-            idVendedor = 2; // VENDEDOR WEB
+            idCliente = 1;
+            idVendedor = usuario.getId(); 
         } else {
-            idVendedor = usuario.getId();
-            idCliente = 1;         }
+            idVendedor = 2;
+            idCliente = usuario.getId();        }
 
         // 2. Crear lista de detalles
         List<DetalleVenta> listaDetalles = new ArrayList<>();
