@@ -129,7 +129,7 @@ private void validarInicioSesion() {
                 MenuPrincipal ventana = (MenuPrincipal) SwingUtilities.getWindowAncestor(this);
                 ventana.setUsuarioActual(persona);
 
-                JOptionPane.showMessageDialog(this, "Inicio de sesión exitoso como " + persona.getTipo());
+                JOptionPane.showMessageDialog(this, "Inicio de sesión exitoso como " + persona.getNombre());
 
                 ventana.actualizarInterfazPorRol(); // método que oculta botones
                 ventana.cambiarPanel(new PuntoDeVenta());
