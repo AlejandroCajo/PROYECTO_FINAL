@@ -22,6 +22,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btn_GestionarProductos.setVisible(false);
         btn_HistoriaDeVentas.setVisible(false);
         btn_RealizarVenta.setVisible(false);
+        
        
     }
     public void cambiarPanel(JPanel nuevoPanel) {
@@ -31,7 +32,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         content.revalidate();
         content.repaint();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -141,13 +141,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3)
-                        .addGap(14, 14, 14)))
+                        .addGap(14, 14, 14))
+                    .addComponent(btn_HistoriaDeVentas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(btn_HistoriaDeVentas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,14 +152,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(btn_GestionarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65)
                 .addComponent(btn_RealizarVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 300, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_HistoriaDeVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                    .addContainerGap(423, Short.MAX_VALUE)
-                    .addComponent(btn_HistoriaDeVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(239, 239, 239)))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -228,6 +221,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void btn_HistoriaDeVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_HistoriaDeVentasActionPerformed
         // TODO add your handling code here:
+       Historial_venta pVenta= new Historial_venta();
+        pVenta.setSize(1161, 808);
+        pVenta.setLocation(0, 0);
+        
+        content.removeAll();
+        content.add(pVenta);
+        content.revalidate();
+        content.repaint();
     }//GEN-LAST:event_btn_HistoriaDeVentasActionPerformed
 
     private void Button_InicioSesion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_InicioSesion1ActionPerformed

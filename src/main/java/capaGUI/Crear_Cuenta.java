@@ -142,7 +142,7 @@ public class Crear_Cuenta extends javax.swing.JPanel {
         String usuario = txt_NUsuario.getText().trim();
         char[] claveChars = Password_contraseña.getPassword();
         String claveHash = hashContraseña(claveChars);
-        String tipo = "cliente";
+        String tipo = "vendedor";
 
         // Validación básica
         if (nombre.isEmpty() || dni.isEmpty() || claveHash.isEmpty()) {

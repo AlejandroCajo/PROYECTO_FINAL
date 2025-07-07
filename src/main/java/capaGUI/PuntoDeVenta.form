@@ -147,7 +147,6 @@
                       <Component id="lblTotalAPagar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="360" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jButton5" min="-2" max="-2" attributes="0"/>
                           <Component id="btnCancelarVenta" min="-2" max="-2" attributes="0"/>
                           <Component id="btnQuitarProducto" min="-2" max="-2" attributes="0"/>
                           <Component id="btnFinalizarVenta" min="-2" max="-2" attributes="0"/>
@@ -168,9 +167,7 @@
                       <Component id="btnQuitarProducto" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="btnCancelarVenta" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="jButton5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="82" max="32767" attributes="0"/>
+                      <EmptySpace pref="134" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -204,11 +201,6 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarVentaActionPerformed"/>
               </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jButton5">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Salir"/>
-              </Properties>
             </Component>
           </SubComponents>
         </Container>

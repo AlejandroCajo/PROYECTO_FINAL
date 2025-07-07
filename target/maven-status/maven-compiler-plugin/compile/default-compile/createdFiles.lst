@@ -15,6 +15,7 @@ capaLogica/ControladoraLogica.class
 capaDatos/DetalleVenta.class
 capaGUI/GestionProductos.class
 capaGUI/GestionProductos$10.class
+capaGUI/Historial_venta.class
 capaGUI/Crear_Cuenta.class
 capaGUI/GestionProductos$6.class
 capaGUI/PuntoDeVenta$5.class

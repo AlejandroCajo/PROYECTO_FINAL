@@ -66,7 +66,6 @@ public class PuntoDeVenta extends javax.swing.JPanel {
         btnFinalizarVenta = new javax.swing.JButton();
         btnQuitarProducto = new javax.swing.JButton();
         btnCancelarVenta = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
 
         btnAgregarAlCarrito.setText("Agregar al Carrito");
         btnAgregarAlCarrito.addActionListener(new java.awt.event.ActionListener() {
@@ -137,8 +136,6 @@ public class PuntoDeVenta extends javax.swing.JPanel {
             }
         });
 
-        jButton5.setText("Salir");
-
         javax.swing.GroupLayout PanelTotalesLayout = new javax.swing.GroupLayout(PanelTotales);
         PanelTotales.setLayout(PanelTotalesLayout);
         PanelTotalesLayout.setHorizontalGroup(
@@ -148,7 +145,6 @@ public class PuntoDeVenta extends javax.swing.JPanel {
                 .addComponent(lblTotalAPagar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 360, Short.MAX_VALUE)
                 .addGroup(PanelTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton5)
                     .addComponent(btnCancelarVenta)
                     .addComponent(btnQuitarProducto)
                     .addComponent(btnFinalizarVenta))
@@ -165,9 +161,7 @@ public class PuntoDeVenta extends javax.swing.JPanel {
                 .addComponent(btnQuitarProducto)
                 .addGap(30, 30, 30)
                 .addComponent(btnCancelarVenta)
-                .addGap(29, 29, 29)
-                .addComponent(jButton5)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -378,7 +372,6 @@ public class PuntoDeVenta extends javax.swing.JPanel {
     private javax.swing.JButton btnFinalizarVenta;
     private javax.swing.JButton btnQuitarProducto;
     private javax.swing.JComboBox<capaDatos.Producto> cmbProductos;
-    private javax.swing.JButton jButton5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTotalAPagar;
