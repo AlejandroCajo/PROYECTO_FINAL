@@ -302,12 +302,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public void actualizarInterfazPorRol() {
         if (usuarioActual == null) return;
 
-        boolean esCliente = usuarioActual.getTipo().equalsIgnoreCase("cliente");
+        boolean esCliente = usuarioActual.getTipo().equalsIgnoreCase("vendedor");
+        boolean esAdmi = usuarioActual.getTipo().equalsIgnoreCase("admin");
 
-        // Desactiva o esconde los botones restringidos para clientes
-        btn_GestionarProductos.setVisible(esCliente);
-        btn_HistoriaDeVentas.setVisible(esCliente);
-        btn_RealizarVenta.setVisible(esCliente);
+        btn_GestionarProductos.setVisible(esCliente || esAdmi);
+        btn_HistoriaDeVentas.setVisible(esAdmi);
+        btn_RealizarVenta.setVisible(esCliente || esAdmi);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

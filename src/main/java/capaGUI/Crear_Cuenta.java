@@ -186,8 +186,7 @@ public class Crear_Cuenta extends javax.swing.JPanel {
 
             content.removeAll(); // Limpiar el contenido anterior
             content.add(new Inicia_Sesion()); // Agregar el nuevo panel
-            content.revalidate();
-            content.repaint();
+ 
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, "Error al crear cuenta:\n" + e.getMessage(), "Error SQL", JOptionPane.ERROR_MESSAGE);
