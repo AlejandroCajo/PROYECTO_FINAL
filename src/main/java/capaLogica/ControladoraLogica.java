@@ -15,12 +15,18 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class ControladoraLogica {
     
     Persistencia persistencia = new Persistencia();
     private VentaDAO ventaDAO;
 
+ // ⬇️ AGREGA ESTO DESPUÉS DE LAS VARIABLES
+    public ControladoraLogica() {
+        Connection conn = ConexionSQLite.conectar();
+        this.ventaDAO = new VentaDAO(conn);
+    }
 
     // --- LÓGICA DE PRODUCTOS ---
    public List<Producto> traerProductos() {
@@ -171,6 +177,14 @@ public void crearMedicamento(String nombre, double precio, int stock, String tip
 }
 
 
+    public static void mostrarResultadoVenta(int aa) {
+        JOptionPane.showMessageDialog(
+            null, // Sin componente padre, aparece centrado en la pantalla
+            "Resultado de la Venta " + aa,
+            "Información",
+            JOptionPane.INFORMATION_MESSAGE
+        );
+    }
     // 1. Calcular total
     double total = 0;
    
@@ -178,33 +192,42 @@ public void crearMedicamento(String nombre, double precio, int stock, String tip
         if (detalles == null || detalles.isEmpty()) {
             return "Error: El carrito está vacío.";
         }
-
+mostrarResultadoVenta(1);
         double total = 0;
         for (DetalleVenta d : detalles) {
             total += d.getProductoVendido().getPrecioVenta() * d.getCantidad();
         }
+mostrarResultadoVenta(2);
 
         Venta venta = new Venta();
         venta.setIdCliente(idCliente);
         venta.setIdVendedor(idVendedor);
         venta.setTotal(total);
         venta.setDetalles(detalles);
+mostrarResultadoVenta(3);
 
         int idVenta = ventaDAO.guardarVenta(venta);  
+        mostrarResultadoVenta(33);
+
         if (idVenta == -1) return "Error al registrar la venta.";
+mostrarResultadoVenta(4);
 
                 // 1. Guardar detalles de venta
         String sqlDetalle = "INSERT INTO detalle_venta (id_venta, id_producto, cantidad, subtotal) VALUES (?, ?, ?, ?)";
         String sqlUpdateStock = "UPDATE productos SET stock = stock - ? WHERE id_producto = ?";
+mostrarResultadoVenta(5);
 
         try (Connection conn = ConexionSQLite.conectar()) {
             conn.setAutoCommit(false);
 
             try (
+                    
                 PreparedStatement stmtDetalle = conn.prepareStatement(sqlDetalle);
                 PreparedStatement stmtStock = conn.prepareStatement(sqlUpdateStock)
             ) {
                 for (DetalleVenta d : detalles) {
+                    mostrarResultadoVenta(6);
+
                     Producto p = d.getProductoVendido();
                     int cantidad = d.getCantidad();
                     double subtotal = p.getPrecioVenta() * cantidad;
@@ -220,23 +243,30 @@ public void crearMedicamento(String nombre, double precio, int stock, String tip
                     stmtStock.setInt(1, cantidad);
                     stmtStock.setInt(2, p.getId());
                     stmtStock.addBatch();
+                    mostrarResultadoVenta(7);
+
                 }
+mostrarResultadoVenta(8);
 
                 stmtDetalle.executeBatch();
                 stmtStock.executeBatch();
                 conn.commit();
+mostrarResultadoVenta(9);
 
             } catch (SQLException e) {
                 conn.rollback();
                 return "Error al guardar detalles de la venta: " + e.getMessage();
             }
+mostrarResultadoVenta(10);
 
         } catch (SQLException e) {
             return "Error en la conexión al guardar detalles: " + e.getMessage();
         }
+mostrarResultadoVenta(11);
 
 
         return "Venta registrada con éxito. Total: S/ " + String.format("%.2f", total);
+
     }
 
 
@@ -246,34 +276,45 @@ public class VentaDAO {
     private Connection conn;
 
     public VentaDAO(Connection conn) {
+        mostrarResultadoVenta(128);
+
         this.conn = conn;
+        mostrarResultadoVenta(120);
+
     }
 
     public int guardarVenta(Venta venta) {
+        mostrarResultadoVenta(3567);
+
         String sql = "INSERT INTO ventas (id_vendedor, id_cliente, fecha) VALUES (?, ?, ?)";
 
         try (PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             stmt.setInt(1, venta.getIdVendedor());
             stmt.setInt(2, venta.getIdCliente());
+mostrarResultadoVenta(12);
 
             // Formateamos la fecha como texto ISO
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             stmt.setString(3, sdf.format(venta.getFecha()));
+mostrarResultadoVenta(13);
 
             int affectedRows = stmt.executeUpdate();
             if (affectedRows == 0) {
                 throw new SQLException("No se pudo guardar la venta.");
             }
+mostrarResultadoVenta(14);
 
             ResultSet keys = stmt.getGeneratedKeys();
             if (keys.next()) {
-                return keys.getInt(1); // ID generado
+                return keys.getInt(1); 
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            mostrarResultadoVenta(19);
+
         }
         return -1; // error
     }
 }
-
 }
+

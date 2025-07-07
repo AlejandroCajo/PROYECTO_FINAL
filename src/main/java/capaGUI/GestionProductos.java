@@ -75,6 +75,7 @@ public class GestionProductos extends javax.swing.JPanel {
         txt_Dosis = new javax.swing.JTextField();
         jDate_Vencimiento = new com.toedter.calendar.JDateChooser();
         Spinner_Stock = new javax.swing.JSpinner();
+        check_medicamento = new java.awt.Checkbox();
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jLabel1.setText("IdProducto:");
@@ -173,6 +174,8 @@ public class GestionProductos extends javax.swing.JPanel {
 
         jDate_Vencimiento.setDateFormatString("dd/mm/yyyy");
 
+        check_medicamento.setLabel("Medicamento");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -209,7 +212,8 @@ public class GestionProductos extends javax.swing.JPanel {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txt_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Spinner_Stock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(Spinner_Stock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(check_medicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btn_Eliminar)
                         .addGap(18, 18, 18)
@@ -249,7 +253,9 @@ public class GestionProductos extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txt_Tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                .addGap(1, 1, 1)
+                .addComponent(check_medicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_Dosis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -531,6 +537,7 @@ public class VistaMedicamentos extends JFrame {
     private javax.swing.JButton btn_Limpiar;
     private javax.swing.JButton btn_Nuevo;
     private javax.swing.JButton btn_Salir;
+    private java.awt.Checkbox check_medicamento;
     private com.toedter.calendar.JDateChooser jDate_Vencimiento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

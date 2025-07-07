@@ -303,6 +303,7 @@ public class PuntoDeVenta extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "No se pudo construir la lista de productos para vender.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
+                JOptionPane.showMessageDialog(this, "true","Resultado de la Venta", JOptionPane.INFORMATION_MESSAGE);
 
         String resultado = control.realizarVenta(idVendedor, idCliente, listaDetalles);
         JOptionPane.showMessageDialog(this, resultado, "Resultado de la Venta", JOptionPane.INFORMATION_MESSAGE);
