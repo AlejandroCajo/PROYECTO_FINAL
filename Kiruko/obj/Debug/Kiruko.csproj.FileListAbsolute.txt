@@ -1,0 +1,11 @@
+C:\Users\lizan\source\repos\Kiruko\Kiruko\bin\Debug\Kiruko.exe.config
+C:\Users\lizan\source\repos\Kiruko\Kiruko\bin\Debug\Kiruko.exe
+C:\Users\lizan\source\repos\Kiruko\Kiruko\bin\Debug\Kiruko.pdb
+C:\Users\lizan\source\repos\Kiruko\Kiruko\bin\Debug\Clases.dll
+C:\Users\lizan\source\repos\Kiruko\Kiruko\bin\Debug\Clases.pdb
+C:\Users\lizan\source\repos\Kiruko\Kiruko\obj\Debug\Kiruko.csproj.AssemblyReference.cache
+C:\Users\lizan\source\repos\Kiruko\Kiruko\obj\Debug\Kiruko.csproj.CoreCompileInputs.cache
+C:\Users\lizan\source\repos\Kiruko\Kiruko\obj\Debug\Kiruko.csproj.Up2Date
+C:\Users\lizan\source\repos\Kiruko\Kiruko\obj\Debug\Kiruko.exe
+C:\Users\lizan\source\repos\Kiruko\Kiruko\obj\Debug\Kiruko.pdb
+C:\Users\lizan\source\repos\Kiruko\Kiruko\obj\Debug\Kiruko.exe.config

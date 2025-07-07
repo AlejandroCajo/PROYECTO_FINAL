@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36202.13 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kiruko", "Kiruko\Kiruko.csproj", "{F678B1CD-92AF-4B97-9059-5323DBB438C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clases", "Clases\Clases.csproj", "{43A1F87C-8F5C-4888-9D6C-95E84B2A9FF1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F678B1CD-92AF-4B97-9059-5323DBB438C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F678B1CD-92AF-4B97-9059-5323DBB438C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F678B1CD-92AF-4B97-9059-5323DBB438C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F678B1CD-92AF-4B97-9059-5323DBB438C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43A1F87C-8F5C-4888-9D6C-95E84B2A9FF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43A1F87C-8F5C-4888-9D6C-95E84B2A9FF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43A1F87C-8F5C-4888-9D6C-95E84B2A9FF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43A1F87C-8F5C-4888-9D6C-95E84B2A9FF1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {98F42E2C-B56B-4797-B0FA-48367A039A33}
+	EndGlobalSection
+EndGlobal
