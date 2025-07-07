@@ -67,6 +67,10 @@ public class PuntoDeVenta extends javax.swing.JPanel {
         btnQuitarProducto = new javax.swing.JButton();
         btnCancelarVenta = new javax.swing.JButton();
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
+
+        btnAgregarAlCarrito.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnAgregarAlCarrito.setText("Agregar al Carrito");
         btnAgregarAlCarrito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,26 +82,26 @@ public class PuntoDeVenta extends javax.swing.JPanel {
         PanelAgregarProducto.setLayout(PanelAgregarProductoLayout);
         PanelAgregarProductoLayout.setHorizontalGroup(
             PanelAgregarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelAgregarProductoLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAgregarProductoLayout.createSequentialGroup()
+                .addContainerGap(64, Short.MAX_VALUE)
                 .addGroup(PanelAgregarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelAgregarProductoLayout.createSequentialGroup()
                         .addComponent(spinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(83, 83, 83)
                         .addComponent(btnAgregarAlCarrito))
                     .addComponent(cmbProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addGap(54, 54, 54))
         );
         PanelAgregarProductoLayout.setVerticalGroup(
             PanelAgregarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelAgregarProductoLayout.createSequentialGroup()
-                .addGap(69, 69, 69)
+                .addGap(98, 98, 98)
                 .addComponent(cmbProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
                 .addGroup(PanelAgregarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregarAlCarrito)
                     .addComponent(spinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
 
         tblCarrito.setModel(new javax.swing.table.DefaultTableModel(
@@ -113,8 +117,10 @@ public class PuntoDeVenta extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblCarrito);
 
+        lblTotalAPagar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblTotalAPagar.setText("Total Apagar:");
 
+        btnFinalizarVenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnFinalizarVenta.setText("Finalizar Venta");
         btnFinalizarVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,6 +128,7 @@ public class PuntoDeVenta extends javax.swing.JPanel {
             }
         });
 
+        btnQuitarProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnQuitarProducto.setText("Quitar Producto");
         btnQuitarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,6 +136,7 @@ public class PuntoDeVenta extends javax.swing.JPanel {
             }
         });
 
+        btnCancelarVenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCancelarVenta.setText("Cancelar Venta");
         btnCancelarVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,27 +149,27 @@ public class PuntoDeVenta extends javax.swing.JPanel {
         PanelTotalesLayout.setHorizontalGroup(
             PanelTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelTotalesLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addGap(41, 41, 41)
                 .addComponent(lblTotalAPagar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 360, Short.MAX_VALUE)
-                .addGroup(PanelTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCancelarVenta)
-                    .addComponent(btnQuitarProducto)
-                    .addComponent(btnFinalizarVenta))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(PanelTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnCancelarVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnQuitarProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnFinalizarVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(224, 224, 224))
         );
         PanelTotalesLayout.setVerticalGroup(
             PanelTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelTotalesLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(PanelTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnFinalizarVenta)
-                    .addComponent(lblTotalAPagar))
-                .addGap(26, 26, 26)
+                .addGap(41, 41, 41)
+                .addGroup(PanelTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblTotalAPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFinalizarVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(btnQuitarProducto)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(btnCancelarVenta)
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addContainerGap(190, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -169,27 +177,25 @@ public class PuntoDeVenta extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanelTotales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
                         .addComponent(PanelAgregarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(PanelTotales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PanelAgregarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(PanelAgregarProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PanelTotales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -268,11 +274,11 @@ public class PuntoDeVenta extends javax.swing.JPanel {
         int idVendedor;
 
         if (usuario.getTipo().equalsIgnoreCase("cliente")) {
-            idCliente = 1;
-            idVendedor = usuario.getId(); 
+            idCliente = usuario.getId();
+            idVendedor = 2; // VENDEDOR WEB
         } else {
-            idVendedor = 2;
-            idCliente = usuario.getId();        }
+            idVendedor = usuario.getId();
+            idCliente = 1;         }
 
         // 2. Crear lista de detalles
         List<DetalleVenta> listaDetalles = new ArrayList<>();

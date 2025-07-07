@@ -1,6 +1,0 @@
-C:\Users\lizan\source\repos\Kiruko\Clases\bin\Debug\Clases.dll
-C:\Users\lizan\source\repos\Kiruko\Clases\bin\Debug\Clases.pdb
-C:\Users\lizan\source\repos\Kiruko\Clases\obj\Debug\Clases.csproj.AssemblyReference.cache
-C:\Users\lizan\source\repos\Kiruko\Clases\obj\Debug\Clases.csproj.CoreCompileInputs.cache
-C:\Users\lizan\source\repos\Kiruko\Clases\obj\Debug\Clases.dll
-C:\Users\lizan\source\repos\Kiruko\Clases\obj\Debug\Clases.pdb

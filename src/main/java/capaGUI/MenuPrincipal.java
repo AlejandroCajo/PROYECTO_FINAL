@@ -54,11 +54,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        content.setBackground(new java.awt.Color(153, 153, 153));
+        content.setBackground(new java.awt.Color(204, 204, 204));
+        content.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Sistema de Botica MarlenyFarma");
 
+        Button_CrearCuenta.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Button_CrearCuenta.setForeground(new java.awt.Color(0, 0, 0));
         Button_CrearCuenta.setText("Crear una Cuenta");
         Button_CrearCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,6 +70,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        Button_InicioSesion1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Button_InicioSesion1.setForeground(new java.awt.Color(0, 0, 0));
         Button_InicioSesion1.setText("Inicia Sesión");
         Button_InicioSesion1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,22 +84,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
         contentLayout.setHorizontalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contentLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Button_InicioSesion1)
-                .addGap(208, 208, 208)
-                .addComponent(Button_CrearCuenta)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(contentLayout.createSequentialGroup()
-                .addGap(293, 293, 293)
-                .addComponent(jLabel1)
-                .addContainerGap(308, Short.MAX_VALUE))
+                .addContainerGap(152, Short.MAX_VALUE)
+                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentLayout.createSequentialGroup()
+                        .addComponent(Button_InicioSesion1)
+                        .addGap(115, 115, 115)
+                        .addComponent(Button_CrearCuenta)
+                        .addGap(172, 172, 172))))
         );
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contentLayout.createSequentialGroup()
-                .addGap(108, 108, 108)
+                .addGap(61, 61, 61)
                 .addComponent(jLabel1)
-                .addGap(55, 55, 55)
+                .addGap(212, 212, 212)
                 .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Button_CrearCuenta)
                     .addComponent(Button_InicioSesion1))
@@ -123,6 +130,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btn_HistoriaDeVentas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btn_HistoriaDeVentas.setText("HISTORIAL DE VENTAS");
         btn_HistoriaDeVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,25 +144,28 @@ public class MenuPrincipal extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_RealizarVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_GestionarProductos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3)
                         .addGap(14, 14, 14))
-                    .addComponent(btn_HistoriaDeVentas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_GestionarProductos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+                            .addComponent(btn_HistoriaDeVentas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_RealizarVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(154, 154, 154)
+                .addGap(188, 188, 188)
                 .addComponent(btn_GestionarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
+                .addGap(31, 31, 31)
                 .addComponent(btn_RealizarVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_HistoriaDeVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
@@ -164,14 +175,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -302,12 +317,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public void actualizarInterfazPorRol() {
         if (usuarioActual == null) return;
 
-        boolean esCliente = usuarioActual.getTipo().equalsIgnoreCase("vendedor");
-        boolean esAdmi = usuarioActual.getTipo().equalsIgnoreCase("admin");
+        boolean esVendedor = usuarioActual.getTipo().equalsIgnoreCase("vendedor");
+        boolean esAdmin = usuarioActual.getTipo().equalsIgnoreCase("admin");
 
-        btn_GestionarProductos.setVisible(esCliente || esAdmi);
-        btn_HistoriaDeVentas.setVisible(esAdmi);
-        btn_RealizarVenta.setVisible(esCliente || esAdmi);
+
+        // Desactiva o esconde los botones restringidos para clientes
+        btn_GestionarProductos.setVisible(esAdmin || esVendedor);
+        btn_HistoriaDeVentas.setVisible(esAdmin);
+        btn_RealizarVenta.setVisible(esVendedor || esAdmin);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

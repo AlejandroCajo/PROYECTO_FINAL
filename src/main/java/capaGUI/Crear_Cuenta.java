@@ -51,16 +51,22 @@ public class Crear_Cuenta extends javax.swing.JPanel {
         Password_contraseña = new javax.swing.JPasswordField();
         Button_CrearCuenta = new javax.swing.JButton();
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Nombre");
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("DNI");
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("Correo");
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("Nombre de Usuario");
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setText("Contraseña");
 
+        Button_CrearCuenta.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Button_CrearCuenta.setText("Crear Cuenta");
         Button_CrearCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,28 +82,30 @@ public class Crear_Cuenta extends javax.swing.JPanel {
                 .addGap(246, 246, 246)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(Button_CrearCuenta)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(Password_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addGap(18, 18, 18)
-                            .addComponent(txt_NUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addGap(18, 18, 18)
-                            .addComponent(txt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel2)
-                            .addGap(18, 18, 18)
+                            .addGap(91, 91, 91)
                             .addComponent(txt_DNI, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addGap(18, 18, 18)
-                            .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(347, Short.MAX_VALUE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel4)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGap(50, 50, 50)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel1)
+                                        .addComponent(jLabel3))))
+                            .addGap(21, 21, 21)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_NUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(32, 32, 32)
+                            .addComponent(jLabel5)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Password_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(285, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,10 +132,8 @@ public class Crear_Cuenta extends javax.swing.JPanel {
                     .addComponent(Password_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addComponent(Button_CrearCuenta)
-                .addContainerGap(351, Short.MAX_VALUE))
+                .addContainerGap(322, Short.MAX_VALUE))
         );
-
-        Button_CrearCuenta.getAccessibleContext().setAccessibleName("Crear Cuenta");
     }// </editor-fold>//GEN-END:initComponents
 
     private void Button_CrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_CrearCuentaActionPerformed
@@ -186,7 +192,8 @@ public class Crear_Cuenta extends javax.swing.JPanel {
 
             content.removeAll(); // Limpiar el contenido anterior
             content.add(new Inicia_Sesion()); // Agregar el nuevo panel
- 
+            content.revalidate();
+            content.repaint();
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, "Error al crear cuenta:\n" + e.getMessage(), "Error SQL", JOptionPane.ERROR_MESSAGE);
