@@ -461,7 +461,7 @@ private void cargarTabla() {
 
     public class ConexionSQLite {
 
-        private static final String URL = "jdbc:sqlite:/home/vizcacha/prueba-medicamento.db";
+      private static final String URL = "jdbc:sqlite:database/prueba-medicamento.db";
 
         public static Connection conectar() {
             try {

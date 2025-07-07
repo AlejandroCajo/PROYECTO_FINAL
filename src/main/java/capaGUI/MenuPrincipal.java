@@ -304,8 +304,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         boolean esCliente = usuarioActual.getTipo().equalsIgnoreCase("cliente");
 
         // Desactiva o esconde los botones restringidos para clientes
-        btn_GestionarProductos.setVisible(!esCliente);
-        btn_HistoriaDeVentas.setVisible(!esCliente);
+        btn_GestionarProductos.setVisible(esCliente);
+        btn_HistoriaDeVentas.setVisible(esCliente);
         btn_RealizarVenta.setVisible(esCliente);
     }
 
