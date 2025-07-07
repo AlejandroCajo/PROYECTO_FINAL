@@ -132,7 +132,7 @@ private void validarInicioSesion() {
                 JOptionPane.showMessageDialog(this, "Inicio de sesión exitoso como " + persona.getTipo());
 
                 ventana.actualizarInterfazPorRol(); // método que oculta botones
-                ventana.cambiarPanel(new GestionProductos());
+                ventana.cambiarPanel(new PuntoDeVenta());
 
             } else {
                 JOptionPane.showMessageDialog(this, "Credenciales incorrectas");
