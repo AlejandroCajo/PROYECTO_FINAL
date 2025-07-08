@@ -1,5 +1,7 @@
 package capaDatos;
 
+import capaLogica.ControladoraLogica;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -16,6 +18,7 @@ public class Persona {
     private String tipo;
     private String correo;
     private String usuario;
+    ControladoraLogica control = new ControladoraLogica();
 
     public Persona(int id, String nombre, String dni, String tipo, String correo, String usuario) {
         this.id = id;
@@ -45,6 +48,7 @@ public class Persona {
         return usuario; 
     }
 
+    
     @Override
     public String toString() {
         return nombre + " (" + tipo + ")";

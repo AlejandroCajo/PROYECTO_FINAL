@@ -280,7 +280,6 @@ public class PuntoDeVenta extends javax.swing.JPanel {
             idVendedor = usuario.getId();
             idCliente = 1;         }
 
-        // 2. Crear lista de detalles
         List<DetalleVenta> listaDetalles = new ArrayList<>();
 
         for (int i = 0; i < tblCarrito.getRowCount(); i++) {

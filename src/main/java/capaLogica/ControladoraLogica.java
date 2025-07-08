@@ -8,6 +8,10 @@ import java.util.Date;
 import java.util.List;
 import capaDatos.Medicamento;
 import capaGUI.GestionProductos.ConexionSQLite;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,6 +22,18 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class ControladoraLogica {
+   
+ public static void BackupSQLite() {
+        String origen = "database/prueba-medicamento.db";
+        String destino = "database/backup/backup_" + System.currentTimeMillis() + ".db";
+
+        try {
+            Files.copy(Paths.get(origen), Paths.get(destino), StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("Backup realizado en: " + destino);
+        } catch (IOException e) {
+            System.err.println("Error al hacer backup: " + e.getMessage());
+        }
+    }
     
     Persistencia persistencia = new Persistencia();
     private VentaDAO ventaDAO;
