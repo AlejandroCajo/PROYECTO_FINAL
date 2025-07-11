@@ -1,6 +1,7 @@
 package capaDatos;
 
 import capaLogica.ControladoraLogica;
+import java.util.List;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -53,5 +54,10 @@ public class Persona {
     public String toString() {
         return nombre + " (" + tipo + ")";
     }
+    public String Vender(int idVendedor, int idCliente, List<DetalleVenta> detalles){
+        String venta = control.realizarVenta(id, id, detalles);
+        return venta;
+    }
 }
+
 

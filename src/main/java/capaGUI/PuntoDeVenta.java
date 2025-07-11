@@ -304,7 +304,8 @@ public class PuntoDeVenta extends javax.swing.JPanel {
         }
                 JOptionPane.showMessageDialog(this, "true","Resultado de la Venta", JOptionPane.INFORMATION_MESSAGE);
 
-        String resultado = control.realizarVenta(idVendedor, idCliente, listaDetalles);
+        //String resultado = control.realizarVenta(idVendedor, idCliente, listaDetalles);
+        String resultado = usuario.Vender(idVendedor, idCliente, listaDetalles);
         JOptionPane.showMessageDialog(this, resultado, "Resultado de la Venta", JOptionPane.INFORMATION_MESSAGE);
 
         if (resultado.contains("éxito")) {

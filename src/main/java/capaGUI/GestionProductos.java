@@ -40,7 +40,6 @@ public class GestionProductos extends javax.swing.JPanel {
     public GestionProductos() {
         initComponents();
         cargarTabla();
-
     }
 
     /**
@@ -75,7 +74,7 @@ public class GestionProductos extends javax.swing.JPanel {
         txt_Dosis = new javax.swing.JTextField();
         jDate_Vencimiento = new com.toedter.calendar.JDateChooser();
         Spinner_Stock = new javax.swing.JSpinner();
-        check_medicamento = new java.awt.Checkbox();
+        jCheckBox1 = new javax.swing.JCheckBox();
 
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLabel1.setText("IdProducto:");
@@ -162,7 +161,6 @@ public class GestionProductos extends javax.swing.JPanel {
         jLabel7.setText("Fecha de vencimiento:");
 
         Check_Receta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Check_Receta.setForeground(new java.awt.Color(0, 0, 0));
         Check_Receta.setText("Requiere Receta");
         Check_Receta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,8 +176,12 @@ public class GestionProductos extends javax.swing.JPanel {
 
         jDate_Vencimiento.setDateFormatString("dd/mm/yyyy");
 
-        check_medicamento.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        check_medicamento.setLabel("Medicamento");
+        jCheckBox1.setText("Medicina");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -222,7 +224,7 @@ public class GestionProductos extends javax.swing.JPanel {
                                                 .addGap(53, 53, 53)
                                                 .addComponent(Spinner_Stock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(check_medicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jCheckBox1)
                                 .addComponent(txt_Dosis, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(260, 260, 260))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -272,9 +274,9 @@ public class GestionProductos extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txt_Tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(1, 1, 1)
-                .addComponent(check_medicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_Dosis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -391,7 +393,7 @@ private void limpiarCampos() {
             JOptionPane.showMessageDialog(this, "El valor ingresado no es un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btn_EliminarActionPerformed
-
+private String tipo1 = "otros";
     private void btn_NuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_NuevoActionPerformed
         // TODO add your handling code here:
            String idTexto = txt_IdProducto.getText();
@@ -404,7 +406,7 @@ private void limpiarCampos() {
 
     // Recolectar datos comunes
     String nombre = txt_Nombre.getText();
-    String tipo = txt_Tipo.getText();
+    String tipo = tipo1;
     double precio = Double.parseDouble(txt_Precio.getText());
     int stock = (int) Spinner_Stock.getValue();
 
@@ -420,13 +422,13 @@ private void limpiarCampos() {
     }
 
     // Ver si se debe guardar como medicamento
-    boolean esMedicamento = !dosis.isEmpty() || receta || fecha != null;
+    boolean esMedicamento = fecha != null && !tipo1.equals("otros");
 
     if (esMedicamento) {
-        control.crearMedicamento(nombre, precio, stock, tipo, dosis, fechaVencimiento, receta);
+        control.crearMedicamento(nombre, precio, stock, tipo1, dosis, fechaVencimiento, receta);
         JOptionPane.showMessageDialog(this, "Medicamento registrado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
     } else {
-        control.crearProducto(nombre, precio, stock, tipo);
+        control.crearProducto(nombre, precio, stock, tipo1);
         JOptionPane.showMessageDialog(this, "Producto registrado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -441,6 +443,11 @@ private void limpiarCampos() {
     private void txt_DosisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_DosisActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_DosisActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+        tipo1 = "medicamento";
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
 private void cargarTabla() {
     DefaultTableModel modeloTabla = new DefaultTableModel() {
         @Override
@@ -556,7 +563,7 @@ public class VistaMedicamentos extends JFrame {
     private javax.swing.JButton btn_Limpiar;
     private javax.swing.JButton btn_Nuevo;
     private javax.swing.JButton btn_Salir;
-    private java.awt.Checkbox check_medicamento;
+    private javax.swing.JCheckBox jCheckBox1;
     private com.toedter.calendar.JDateChooser jDate_Vencimiento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

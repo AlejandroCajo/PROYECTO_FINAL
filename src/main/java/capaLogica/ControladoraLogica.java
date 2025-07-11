@@ -38,13 +38,11 @@ public class ControladoraLogica {
     Persistencia persistencia = new Persistencia();
     private VentaDAO ventaDAO;
 
- // ⬇️ AGREGA ESTO DESPUÉS DE LAS VARIABLES
     public ControladoraLogica() {
         Connection conn = ConexionSQLite.conectar();
         this.ventaDAO = new VentaDAO(conn);
     }
 
-    // --- LÓGICA DE PRODUCTOS ---
    public List<Producto> traerProductos() {
     List<Producto> lista = new ArrayList<>();
 
@@ -106,7 +104,7 @@ public class ControladoraLogica {
          PreparedStatement stmt = conn.prepareStatement(sql)) {
         stmt.setInt(1, idProducto);
         try (ResultSet rs = stmt.executeQuery()) {
-            return rs.next(); // Retorna true si encontró algún resultado
+            return rs.next(); 
         }
     } catch (SQLException e) {
         System.out.println("Error al verificar existencia del producto: " + e.getMessage());
@@ -131,7 +129,7 @@ public class ControladoraLogica {
         try (PreparedStatement psMed = conn.prepareStatement(sqlMedicamento)) {
             psMed.setString(1, dosis);
             psMed.setInt(2, requiereReceta);
-            psMed.setString(3, fechaVencimiento); // en formato "yyyy-MM-dd"
+            psMed.setString(3, fechaVencimiento);
             psMed.setInt(4, id);
             psMed.executeUpdate();
         }
