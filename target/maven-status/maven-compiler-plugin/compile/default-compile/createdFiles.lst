@@ -1,1 +1,5 @@
 capaGUI/MenuPrincipal$8.class
+capaPersistencia/MedicamentoDAO.class
+capaPersistencia/VentaDAO.class
+capaPersistencia/ConexionSQLite.class
+capaPersistencia/ProductoDAO.class

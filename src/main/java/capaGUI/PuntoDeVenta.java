@@ -7,13 +7,7 @@ package capaGUI;
 import capaDatos.DetalleVenta;
 import capaDatos.Persona;
 import capaDatos.Producto;
-import capaGUI.GestionProductos.ConexionSQLite;
 import capaLogica.ControladoraLogica;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -304,8 +298,7 @@ public class PuntoDeVenta extends javax.swing.JPanel {
         }
                 JOptionPane.showMessageDialog(this, "true","Resultado de la Venta", JOptionPane.INFORMATION_MESSAGE);
 
-        //String resultado = control.realizarVenta(idVendedor, idCliente, listaDetalles);
-        String resultado = usuario.Vender(idVendedor, idCliente, listaDetalles);
+        String resultado = control.realizarVenta(idVendedor, idCliente, listaDetalles);
         JOptionPane.showMessageDialog(this, resultado, "Resultado de la Venta", JOptionPane.INFORMATION_MESSAGE);
 
         if (resultado.contains("éxito")) {
@@ -321,15 +314,18 @@ public class PuntoDeVenta extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnCancelarVentaActionPerformed
 
-  private void cargarProductosComboBox() {
-    cmbProductos.removeAllItems(); // limpiar
-    List<Producto> productos = control.traerProductos();
-    for (Producto p : productos) {
-        cmbProductos.addItem(p);
-    }
-}
+    private void cargarProductosComboBox() {
+        cmbProductos.removeAllItems();
+        List<Producto> productos = control.traerProductos();
 
-  
+        for (Producto p : productos) {
+            if (!p.estaVencido()) {
+                cmbProductos.addItem(p);
+            }
+        }
+    }
+
+
     
     private void prepararTablaCarrito() {
         modeloTablaCarrito = new DefaultTableModel() {
@@ -352,13 +348,9 @@ public class PuntoDeVenta extends javax.swing.JPanel {
     }
     
     private void limpiarVenta() {
-        // Limpiamos la tabla
         modeloTablaCarrito.setRowCount(0);
-        // Reseteamos el total
         lblTotalAPagar.setText("S/ 0.00");
-        // Reseteamos el spinner
         spinnerCantidad.setValue(0);
-        // Reseteamos el ComboBox
         cmbProductos.setSelectedIndex(-1);
     }
 

@@ -4,7 +4,7 @@
  */
 package capaGUI;
 
-import capaDatos.Medicamento;
+import capaPersistencia.ConexionSQLite;
 import capaDatos.Producto;
 import capaLogica.ControladoraLogica;
 import static java.awt.SystemColor.control;
@@ -21,6 +21,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import java.sql.Statement; 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -57,10 +58,8 @@ public class GestionProductos extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         txt_IdProducto = new javax.swing.JTextField();
         txt_Nombre = new javax.swing.JTextField();
-        txt_Tipo = new javax.swing.JTextField();
         txt_Precio = new javax.swing.JTextField();
         btn_Nuevo = new javax.swing.JButton();
         btn_Limpiar = new javax.swing.JButton();
@@ -91,9 +90,6 @@ public class GestionProductos extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLabel5.setText("Stock:");
 
-        jLabel6.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        jLabel6.setText("Tipo:");
-
         txt_IdProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_IdProductoActionPerformed(evt);
@@ -103,12 +99,6 @@ public class GestionProductos extends javax.swing.JPanel {
         txt_Nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_NombreActionPerformed(evt);
-            }
-        });
-
-        txt_Tipo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_TipoActionPerformed(evt);
             }
         });
 
@@ -176,7 +166,7 @@ public class GestionProductos extends javax.swing.JPanel {
 
         jDate_Vencimiento.setDateFormatString("dd/mm/yyyy");
 
-        jCheckBox1.setText("Medicina");
+        jCheckBox1.setText("Es Medicina");
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox1ActionPerformed(evt);
@@ -197,7 +187,6 @@ public class GestionProductos extends javax.swing.JPanel {
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txt_IdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txt_Tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addGap(18, 18, 18)
@@ -213,7 +202,6 @@ public class GestionProductos extends javax.swing.JPanel {
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jLabel4)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel6)
                                                 .addComponent(jLabel5)
                                                 .addComponent(jLabel3)))
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,10 +210,11 @@ public class GestionProductos extends javax.swing.JPanel {
                                                 .addComponent(txt_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGap(53, 53, 53)
-                                                .addComponent(Spinner_Stock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jCheckBox1)
-                                .addComponent(txt_Dosis, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jCheckBox1)
+                                                    .addComponent(Spinner_Stock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(0, 0, Short.MAX_VALUE))))))
+                            .addComponent(txt_Dosis, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(260, 260, 260))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btn_Eliminar)
@@ -270,13 +259,9 @@ public class GestionProductos extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel5)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txt_Tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jCheckBox1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_Dosis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -323,10 +308,6 @@ public class GestionProductos extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_NombreActionPerformed
 
-    private void txt_TipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_TipoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_TipoActionPerformed
-
     private void btn_EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EditarActionPerformed
         String idTexto = txt_IdProducto.getText();
             int id = Integer.parseInt(txt_IdProducto.getText());
@@ -350,7 +331,7 @@ public class GestionProductos extends javax.swing.JPanel {
             String nombre = txt_Nombre.getText();
             double precio = Double.parseDouble(txt_Precio.getText());
             int stock = (int) Spinner_Stock.getValue();
-            String tipo = txt_Tipo.getText();
+            String tipo = tipo1;
             String dosis = txt_Dosis.getText();
             boolean receta = Check_Receta.isSelected();
             int recetaInt = receta ? 1 : 0;
@@ -377,7 +358,7 @@ private void limpiarCampos() {
     txt_Nombre.setText("");
     txt_Precio.setText("");
     Spinner_Stock.setValue(0);
-    txt_Tipo.setText("");
+    jCheckBox1.setSelected(false);
     txt_Dosis.setText("");
     Check_Receta.setSelected(false);
     jDate_Vencimiento.setDate(null);
@@ -456,28 +437,39 @@ private void cargarTabla() {
         }
     };
 
-    String[] titulos = {"ID", "Nombre", "Precio", "Stock", "Laboratorio", "Receta"};
+    String[] titulos = {"ID", "Nombre", "Precio", "Stock", "Dosis", "Receta", "¿Vencido?"};
     modeloTabla.setColumnIdentifiers(titulos);
 
     String sql = """
-        SELECT p.id_producto, p.nombre, p.precio, p.stock,
-               m.dosis, m.requiere_receta
-        FROM productos p
-        LEFT JOIN medicamentos m ON p.id_producto = m.id_producto
-    """;
+                    SELECT p.id_producto, p.nombre, p.precio, p.stock,
+                           m.dosis, m.requiere_receta, m.fecha_vencimiento
+                    FROM productos p
+                    LEFT JOIN medicamentos m ON p.id_producto = m.id_producto
+                """;
 
     try (Connection conn = ConexionSQLite.conectar();
          Statement stmt = conn.createStatement();
          ResultSet rs = stmt.executeQuery(sql)) {
 
         while (rs.next()) {
+           String fechaVencStr = rs.getString("fecha_vencimiento");
+            String vencido;
+
+            if (fechaVencStr == null || fechaVencStr.isEmpty()) {
+                vencido = "--";
+            } else {
+                LocalDate fechaVenc = LocalDate.parse(fechaVencStr);
+                vencido = fechaVenc.isBefore(LocalDate.now()) ? "Sí" : "No";
+            }
+
             Object[] fila = {
                 rs.getInt("id_producto"),
                 rs.getString("nombre"),
                 rs.getDouble("precio"),
                 rs.getInt("stock"),
-                rs.getString("dosis") != null ? rs.getString("dosis") : "",
-                rs.getInt("requiere_receta") == 1 ? "Sí" : "No"
+                rs.getString("dosis"),
+                rs.getInt("requiere_receta") == 1 ? "Sí" : "No",
+                vencido
             };
             modeloTabla.addRow(fila);
         }
@@ -487,71 +479,6 @@ private void cargarTabla() {
     }
 
     jTable1.setModel(modeloTabla);
-}
-
-
-
-    public class ConexionSQLite {
-
-      private static final String URL = "jdbc:sqlite:database/prueba-medicamento.db";
-
-        public static Connection conectar() {
-            try {
-                return DriverManager.getConnection(URL);
-            } catch (SQLException e) {
-                System.out.println("Error al conectar a SQLite: " + e.getMessage());
-                return null;
-            }
-        }
-    }
-
-
-public class VistaMedicamentos extends JFrame {
-    private JTable tabla;
-    private DefaultTableModel modelo;
-
-    public VistaMedicamentos() {
-        setTitle("Lista de Medicamentos");
-        setSize(600, 400);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-        modelo = new DefaultTableModel(new String[]{"ID", "Nombre", "Precio", "Stock", "Dosis", "Receta"}, 0);
-        tabla = new JTable(modelo);
-        JScrollPane scroll = new JScrollPane(tabla);
-        add(scroll);
-
-        cargarMedicamentos();
-    }
-
-    private void cargarMedicamentos() {
-        String sql = """
-                SELECT p.id_producto, p.nombre, p.precio, p.stock, m.dosis, m.requiere_receta
-                FROM productos p
-                JOIN medicamentos m ON p.id_producto = m.id_producto
-                """;
-
-        try (Connection conn = ConexionSQLite.conectar();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
-
-            while (rs.next()) {
-                Object[] fila = {
-                    rs.getInt("id_producto"),
-                    rs.getString("nombre"),
-                    rs.getDouble("precio"),
-                    rs.getInt("stock"),
-                    rs.getString("dosis"),
-                    rs.getInt("requiere_receta") == 1 ? "Sí" : "No"
-                };
-                modelo.addRow(fila);
-            }
-
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Error al cargar medicamentos:\n" + e.getMessage());
-        }
-    }
-
-
 }
 
     
@@ -570,7 +497,6 @@ public class VistaMedicamentos extends JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -579,6 +505,5 @@ public class VistaMedicamentos extends JFrame {
     private javax.swing.JTextField txt_IdProducto;
     private javax.swing.JTextField txt_Nombre;
     private javax.swing.JTextField txt_Precio;
-    private javax.swing.JTextField txt_Tipo;
     // End of variables declaration//GEN-END:variables
 }

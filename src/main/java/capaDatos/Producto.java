@@ -4,6 +4,9 @@
  */
 package capaDatos;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
+
 /**
  *
  * @author lizan
@@ -16,16 +19,16 @@ public class Producto {
     protected double precioVenta;
     protected int stock;
     
-    // Si es medicamento
+    private String fechaVencimiento;
     protected String dosis;
     protected boolean requiereReceta;
 
     public Producto() {
     }
-@Override
-public String toString() {
-    return nombre;
-}
+    @Override
+    public String toString() {
+        return nombre;
+    }
 
     // Constructor general
         public Producto(int id, String nombre, double precioVenta, int stock, String tipo) {
@@ -96,4 +99,25 @@ public String toString() {
         this.requiereReceta = requiereReceta;
     }
     
+    
+
+    public String getFechaVencimiento() {
+        return fechaVencimiento;
+    }
+
+    public void setFechaVencimiento(String fechaVencimiento) {
+        this.fechaVencimiento = fechaVencimiento;
+    }
+
+    public boolean estaVencido() {
+        if (fechaVencimiento == null || fechaVencimiento.isEmpty()) {
+            return false; // no tiene vencimiento
+        }
+        try {
+            LocalDate venc = LocalDate.parse(fechaVencimiento); // formato yyyy-MM-dd
+            return venc.isBefore(LocalDate.now());
+        } catch (DateTimeParseException e) {
+            return false; // si está mal formateada, no considerarlo vencido
+        }
+    }
 }

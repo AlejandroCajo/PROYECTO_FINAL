@@ -54,10 +54,7 @@ public class Persona {
     public String toString() {
         return nombre + " (" + tipo + ")";
     }
-    public String Vender(int idVendedor, int idCliente, List<DetalleVenta> detalles){
-        String venta = control.realizarVenta(id, id, detalles);
-        return venta;
-    }
+
 }
 
 

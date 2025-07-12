@@ -4,7 +4,7 @@
  */
 package capaGUI;
 
-import capaGUI.GestionProductos.ConexionSQLite;
+import capaPersistencia.ConexionSQLite;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
