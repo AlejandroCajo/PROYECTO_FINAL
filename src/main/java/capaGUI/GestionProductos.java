@@ -41,6 +41,12 @@ public class GestionProductos extends javax.swing.JPanel {
     public GestionProductos() {
         initComponents();
         cargarTabla();
+        
+        jLabel3.setVisible(false);
+        txt_Dosis.setVisible(false);
+        jLabel7.setVisible(false);
+        jDate_Vencimiento.setVisible(false);
+        Check_Receta.setVisible(false);
     }
 
     /**
@@ -358,6 +364,7 @@ private void limpiarCampos() {
     txt_Nombre.setText("");
     txt_Precio.setText("");
     Spinner_Stock.setValue(0);
+    tipo1 = "otros";
     jCheckBox1.setSelected(false);
     txt_Dosis.setText("");
     Check_Receta.setSelected(false);
@@ -427,7 +434,26 @@ private String tipo1 = "otros";
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
-        tipo1 = "medicamento";
+        if (jCheckBox1.isSelected()) {
+            tipo1 = "medicamento";
+            jLabel3.setVisible(true);
+            txt_Dosis.setVisible(true);
+            jLabel7.setVisible(true);
+            jDate_Vencimiento.setVisible(true);
+            Check_Receta.setVisible(true);
+        } else {
+            tipo1 = "otros";  
+            jLabel3.setVisible(false);
+            txt_Dosis.setVisible(false);
+            txt_Dosis.setText(null); 
+
+            jLabel7.setVisible(false);
+            jDate_Vencimiento.setVisible(false);
+            jDate_Vencimiento.setDate(null); 
+
+            Check_Receta.setVisible(false);
+            Check_Receta.setSelected(false); 
+        }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 private void cargarTabla() {
     DefaultTableModel modeloTabla = new DefaultTableModel() {

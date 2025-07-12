@@ -23,8 +23,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btn_GestionarProductos.setVisible(false);
         btn_HistoriaDeVentas.setVisible(false);
         btn_RealizarVenta.setVisible(false);
-        
-       
     }
     public void cambiarPanel(JPanel nuevoPanel) {
         content.removeAll();
@@ -58,6 +56,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         content.setBackground(new java.awt.Color(204, 204, 204));
         content.setForeground(new java.awt.Color(255, 255, 255));
+        content.setAutoscrolls(true);
 
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
         jLabel1.setText("Sistema de Botica MarlenyFarma");
@@ -105,6 +104,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addComponent(Button_InicioSesion1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jPanel3.setAutoscrolls(true);
 
         btn_GestionarProductos.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         btn_GestionarProductos.setText("GESTIONAR PRODUCTOS");

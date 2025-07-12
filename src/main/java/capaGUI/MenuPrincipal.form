@@ -66,6 +66,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="autoscrolls" type="boolean" value="true"/>
           </Properties>
 
           <Layout>
@@ -137,6 +138,9 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel3">
+          <Properties>
+            <Property name="autoscrolls" type="boolean" value="true"/>
+          </Properties>
 
           <Layout>
             <DimensionLayout dim="0">
